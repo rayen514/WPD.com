@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Horrible</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #ff3333;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            position: relative;
+            background: url('https://i.imgur.com/ILrGf4B.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* En-tête */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: red;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid #ff0000;
+            box-shadow: 0 0 20px #ff0000;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        header h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 10px #ff0000, 0 0 25px #ff0000;
+        }
+
+        /* Boutons pour ouvrir les sous-pages */
+        #menuBtn {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: red;
+            border: 1px solid #ff0000;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff0000;
+            font-size: 1.5em;
+        }
+
+        #menuBtn:hover {
+            background-color: #ff0000;
+            color: black;
+            box-shadow: 0 0 25px #ff6666;
+        }
+
+        /* Liste des liens de sous-pages */
+        #menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ff6666;
+            border: 1px solid #ff0000;
+            width: 200px;
+            padding: 10px;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        #menu a {
+            color: #ff6666;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 10px 0;
+            display: block;
+        }
+
+        #menu a:hover {
+            color: red;
+            text-shadow: 0 0 10px #ff6666;
+        }
+
+        /* Section de contenu */
+        main {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .content-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px #ff0000;
+            animation: pulse 2s infinite;
+        }
+
+        .content-section h2 {
+            font-size: 3em;
+            color: #ff0000;
+            text-shadow: 2px 2px 10px #ff0000;
+            margin-bottom: 15px;
+        }
+
+        .content-section img,
+        .content-section video {
+            max-width: 90%;
+            height: auto;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        .description {
+            color: #ff9999;
+            font-size: 1.5em;
+            margin-top: 15px;
+            text-shadow: 1px 1px 10px #ff3333;
+        }
+
+        /* Animation d'effet de pulsation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Effets de transformation */
+        .content-section img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff0000;
+        }
+
+        .content-section video:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff0000;
+        }
+
+        /* Styles pour les éléments "horribles" */
+        .horror-effect {
+            font-size: 2em;
+            color: #ff3333;
+            text-shadow: 0 0 10px red, 0 0 20px red;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Page de Terreur Ultime</h1>
+        <p class="horror-effect">Bienvenue dans l'horreur pure...</p>
+    </header>
+
+    <div id="menuBtn" onclick="toggleMenu()">☰</div>
+
+    <div id="menu">
+        <a href="#">Sous-Page 1</a>
+        <a href="#">Sous-Page 2</a>
+        <a href="#">Sous-Page 3</a>
+    </div>
+
+    <main>
+        <!-- Section image -->
+        <div class="content-section">
+            <h2>Image Horrifique</h2>
+            <a href="https://ibb.co/HhvgGMq"><img src="https://i.ibb.co/TWXhPnt/Screenshot-20241109-203730.jpg" alt="Screenshot-20241109-203730" border="0"></a> <alt="Image Terrifiante">
+            <p class="description">Cette belle fille a été rappé par son ami dans la foret .Hmmmmmm il met tout son pénis dans son cul.Quel plaisir!Blonde fille!</p>
+        </div>
+
+        <!-- Section vidéo -->
+        <div class="content-section">
+            <h2>Vidéo Terrifiante</h2>
+            <video controls>
+                <source src="https://l.facebook.com/l.php?u=https%3A%2F%2Ffiles.fm%2Fu%2Funxmq98pyv%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR3sxRa9v2EoAB1JwJLaM3iVMPij2_5ELMhGXvK7Y3ah3CyD5blCthyo35Y_aem_kVAEagLNZkH80UGPqVAlOg&h=AT13FP0dirlnearz2isSS_oCr7o4cAoGvGSq9ezqX7tjtb3jCADeURGZ0Y9oxZ0wcnBraO_RfotJv485SRIoApigToIv73OChq5twyg3kTLDVIewWsw8iUALzhUA00BB-J985g" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos HTML5.
+            </video>
+            <p class="description">!!!</p>
+        </div>
+
+        <!-- Section photo -->
+        <div class="content-section">
+            <h2>Photo Étrange</h2>
+            <a href="https://ibb.co/wBJBK42"><img src="https://i.ibb.co/JmxmzHS/Screenshot-20241109-203757.jpg" alt="Screenshot-20241109-203757" border="0"></a><br /><a target='_blank' href='https://fr.imgbb.com/'>avatar gratuit à partir d une photo</a><br /> <alt="Photo étrange">
+            <p class="description">MAis le pauvre garcon a été tué sans commisération par le pere de la fille avec son pistolet ...</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
