@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoires Horribles</title>
+    <style>
+        body {
+            background-color: black;
+            color: #e60000;
+            font-family: 'Creepster', cursive;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ff3333;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin: 20px 10%;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            color: #ff6666;
+        }
+
+        .separator {
+            border-top: 3px dashed red;
+            margin: 50px auto;
+            width: 80%;
+            opacity: 0.7;
+        }
+
+        .start-story {
+            background-color: #660000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            border: 2px solid red;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .start-story:hover {
+            background-color: #b30000;
+            transform: scale(1.1);
+        }
+
+        .horror-story {
+            position: relative;
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
+            }
+            50% {
+                opacity: 0.5;
+                text-shadow: none;
+            }
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        .warning {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+            animation: warning-blink 1.5s infinite alternate;
+        }
+
+        @keyframes warning-blink {
+            0% { color: #ff3333; }
+            100% { color: #660000; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Horrible Stories</h1>
+
+    <div class="start-story" id="startStoryBtn" onclick="startNewStory()">
+        Click to start a new story
+    </div>
+
+    <div class="warning" id="storyWarning">
+        Warning: This story contains disturbing elements. Read at your own risk.
+    </div>
+
+    <div class="horror-story">
+        <h2>Good night :)</h2>
+        <p>
+            Night of the Faceless Hunters
+            Midnight had long passed. Alone on a twisted, abandoned road that snaked through a forest, Alex gripped the steering wheel, his heart pounding. The darkness swallowed everything, pressing in on him with a cold and unforgiving presence. The trees leaned over like twisted, angry beasts with clawed branches, as if the forest itself were hunting him, watching his every move with vengeful eyes hidden deep within the shadows.
+            
+            Suddenly, his headlights swept over a figure standing dead center in the middle of the road—a person, or something that once looked like one, with a hood pulled low over its face. Alex hit the brakes, nearly skidding off the road as he fought to avoid the figure. But when he looked again, the thing was gone.
+            
+            His heart thumped painfully. It was still out there, somewhere, waiting, hiding in the dark.
+            
+            As he continued down the road, an ominous chill gripped him, his every instinct screaming danger. Glancing nervously in his rearview mirror, he saw it—a shadowy figure in his back seat. Its face was as smooth as porcelain, with no eyes, no nose, and no mouth—just a blank, soulless face staring at him, exuding a malevolence that sucked the air from the car. The emptiness of that face was more horrific than anything he could imagine, as though it was waiting to steal his soul.
+            
+            Alex’s throat tightened, his scream caught somewhere deep in his chest. He slammed on the gas, speeding through the winding road, every nerve on fire, his eyes fixed on the road, praying to escape the nightmare. But that face… that blank, horrific face continued to loom in the mirror, inching closer, somehow there and not there all at once. Every second felt like hours as he raced to escape.
+            
+            Then—nothing. The figure vanished, leaving only a suffocating, empty silence. Trembling, Alex pulled to the side of the road, his heart racing as he tried to calm himself, his hands gripping the wheel so tight his knuckles turned white.
+            
+            But when he looked up, he froze. Standing all around him, in a deadly circle, were hundreds of faceless figures, emerging from the dark like demons crawling up from the grave. Each face was a smooth, deathly pale mask, featureless yet somehow filled with rage and hunger. They wanted him. They wanted to tear him apart.
+            
+            The figures moved forward, in perfect silence, with the cold relentlessness of death itself. Alex tried to scream, but one of them lunged, cold hands wrapping around his throat, while others clawed at him, ripping into his skin, their fingers sharp as knives, scratching at his flesh like rabid animals. The air filled with the scent of blood as his own was spilled across the leather seats.
+            
+            His screams were lost in the darkness, drowned by their soulless whispers, their silent fury, as he felt his life draining away. The faceless creatures tore him apart piece by piece, leaving nothing behind but his blood-soaked clothes and the haunting echo of his last, desperate screams.
+            
+            When morning came, the road was empty. No sign of Alex, no sign of blood. Just a car, abandoned, its doors wide open, surrounded by the eerie silence of the forest. And if you looked close enough, you might see them—hundreds of faceless shadows, waiting in the dark, hungry for the next soul that dared cross their path.
+        </p>
+    </div>
+
+    <div class="separator"></div>
+
+    <h2>Next story</h2>
+    <div class="start-story" id="startStoryBtn2" onclick="startNewStory()">
+        Click here for a new story
+    </div>
+
+    <script>
+        // Fonction pour démarrer une nouvelle histoire et afficher la barre de séparation
+        function startNewStory() {
+            document.querySelector(".warning").style.display = "none";  // Masquer le message d'avertissement
+            document.querySelector(".horror-story").style.display = "none"; // Masquer l'histoire actuelle
+
+            setTimeout(() => {
+                document.querySelector(".separator").style.display = "block"; // Afficher la barre de séparation
+                setTimeout(() => {
+                    document.querySelector(".horror-story").style.display = "block"; // Afficher la nouvelle histoire
+                    document.querySelector(".horror-story h2").textContent = "Une autre nuit étrange...";
+                    document.querySelector(".horror-story p").textContent = "Les cris dans les murs devenaient de plus en plus forts...";
+                }, 2000);
+            }, 1000);
+        }
+
+        // Afficher le message d'avertissement après un délai
+        setTimeout(() => {
+            document.getElementById("storyWarning").style.display = "block";
+        }, 3000);
+    </script>
+
+</body>
+</html>
+
+
