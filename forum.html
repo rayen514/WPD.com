@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages de Mafia</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #220000, #000);
+            color: #ff4444;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .tableau {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border: 5px solid #770000;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #550000;
+            width: 80%;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        .message {
+            background: linear-gradient(45deg, #660000, #220000);
+            color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px #000;
+            font-size: 1.2em;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .message::before {
+            content: "🔪";
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        .message:nth-child(odd) {
+            background: linear-gradient(45deg, #550000, #110000);
+        }
+        .message.highlight {
+            background: linear-gradient(45deg, #003366, #002244);
+            box-shadow: 0 0 20px #0088cc;
+        }
+        .message:not(.highlight) {
+            background: linear-gradient(45deg, #660000, #220000);
+            box-shadow: 3px 3px 10px #000;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px #000;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="tableau" id="messageTableau">
+        <h1>Messaggi della Famiglia</h1>
+        <!-- Messages will be dynamically added here -->
+    </div>
+
+    <script>
+        // Fonction pour ajouter un nouveau message
+        function ajouterMessage(nouveauMessage) {
+            const messageTableau = document.getElementById('messageTableau');
+            const newMessageDiv = document.createElement('div');
+            newMessageDiv.classList.add('message', 'highlight');
+            newMessageDiv.textContent = nouveauMessage;
+
+            // Ajouter le message en haut du tableau
+            messageTableau.insertBefore(newMessageDiv, messageTableau.children[1]);
+
+            // Faire en sorte que le message précédent perde l'effet de surbrillance
+            const messages = messageTableau.getElementsByClassName('message');
+            for (let i = 0; i < messages.length; i++) {
+                if (messages[i] !== newMessageDiv) {
+                    messages[i].classList.remove('highlight');
+                }
+            }
+
+            // Supprimer la mise en évidence après 1 heure
+            setTimeout(() => {
+                newMessageDiv.classList.remove('highlight');
+            }, 3600000); // 3600000ms = 1 heure
+        }
+
+        // Exemple d'ajout de messages depuis le code
+        // Vous devez ajouter vos propres messages directement dans le code HTML
+        // Par exemple, pour ajouter un nouveau message, utilisez la fonction suivante :
+        // ajouterMessage("Votre message ici");
+
+        // Exemple de test, vous pouvez supprimer ou modifier ceci pour ajouter un message manuellement
+        ajouterMessage("");
+    </script>
+</body>
+</html>
