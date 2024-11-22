@@ -39,6 +39,8 @@
             display: flex;
             align-items: center;
             transition: background 0.3s, box-shadow 0.3s;
+            white-space: pre-wrap;  /* Ajouté pour gérer le texte long */
+            word-wrap: break-word; /* Ajouté pour éviter que le texte dépasse */
         }
         .message::before {
             content: "🔪";
@@ -96,10 +98,8 @@
             }, 3600000); // 3600000ms = 1 heure
         }
 
-        // Exemple d'ajout de messages
-        ajouterMessage("The syndicate, a shadowy empire that thrives in the deepest corners of society, operates under a veil of  and manipulation. Their influence is built on fear, with every move calculated to maintain control over both allies and enemies. Their objectives are not just sinister but chilling in their cruelty—shrouded in secrecy, they weave webs of corruption, power, and death. Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. Their leaders, faceless and relentless, pull the strings of governments and corporations alike, using violence and deceit as their weapons of choice. The syndicate's true goal is not just to control but to instill a constant, gnawing dread, making their victims feel powerless, lost, and enslaved to their will. No one is safe from their grip—once you enter their world, there is no escape, and the only certainty is the endless darkness that follows.
-
-")
+        // Exemple d'ajout de messages avec texte long (message découpé)
+        ajouterMessage("The syndicate, a shadowy empire that thrives in the deepest corners of society, operates under a veil of secrecy and manipulation. Their influence is built on fear, with every move calculated to maintain control over both allies and enemies. \nTheir objectives are not just sinister but chilling in their cruelty—shrouded in secrecy, they weave webs of corruption, power, and death. Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. \nTheir leaders, faceless and relentless, pull the strings of governments and corporations alike, using violence and deceit as their weapons of choice.");
         ajouterMessage("Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. Their leaders, faceless and relentless, pull the strings of governments and corporations alike.");
     </script>
 </body>
