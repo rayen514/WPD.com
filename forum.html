@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages de Syndicate</title>
+    <title>Messages de Mafia</title>
     <style>
         body {
             background: radial-gradient(circle, #220000, #000);
@@ -13,8 +13,9 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
+            flex-direction: column;
         }
         .tableau {
             background-color: rgba(0, 0, 0, 0.9);
@@ -23,8 +24,8 @@
             border-radius: 15px;
             box-shadow: 0 0 30px #550000;
             width: 80%;
-            overflow-y: auto;
             max-height: 80vh;
+            overflow-y: auto;
         }
         .message {
             background: linear-gradient(45deg, #660000, #220000);
@@ -65,8 +66,8 @@
     </style>
 </head>
 <body>
+    <h1>Messaggi della Famiglia</h1>
     <div class="tableau" id="messageTableau">
-        <h1>Messaggi della Famiglia</h1>
         <!-- Messages will be dynamically added here -->
     </div>
 
@@ -79,7 +80,7 @@
             newMessageDiv.textContent = nouveauMessage;
 
             // Ajouter le message en haut du tableau
-            messageTableau.insertBefore(newMessageDiv, messageTableau.firstChild);
+            messageTableau.insertBefore(newMessageDiv, messageTableau.children[0]);
 
             // Faire en sorte que le message précédent perde l'effet de surbrillance
             const messages = messageTableau.getElementsByClassName('message');
@@ -95,9 +96,11 @@
             }, 3600000); // 3600000ms = 1 heure
         }
 
-        // Exemple d'ajout de messages depuis le code
-        ajouterMessage("The syndicate, a shadowy empire that thrives in the deepest corners of society, operates under a veil of terror and manipulation. Their influence is built on fear, with every move calculated to maintain control over both allies and enemies. Their objectives are not just sinister but chilling in their cruelty—shrouded in secrecy, they weave webs of corruption, power, and death. Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. Their leaders, faceless and relentless, pull the strings of governments and corporations alike, using violence and deceit as their weapons of choice. The syndicate's true goal is not just to control but to instill a constant, gnawing dread, making their victims feel powerless, lost, and enslaved to their will. No one is safe from their grip—once you enter their world, there is no escape, and the only certainty is the endless darkness that follows.");
+        // Exemple d'ajout de messages
+        ajouterMessage("The syndicate, a shadowy empire that thrives in the deepest corners of society, operates under a veil of  and manipulation. Their influence is built on fear, with every move calculated to maintain control over both allies and enemies. Their objectives are not just sinister but chilling in their cruelty—shrouded in secrecy, they weave webs of corruption, power, and death. Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. Their leaders, faceless and relentless, pull the strings of governments and corporations alike, using violence and deceit as their weapons of choice. The syndicate's true goal is not just to control but to instill a constant, gnawing dread, making their victims feel powerless, lost, and enslaved to their will. No one is safe from their grip—once you enter their world, there is no escape, and the only certainty is the endless darkness that follows.
+
+")
+        ajouterMessage("Each whispered word in their dark chambers is a threat, each deal a pact sealed with blood. Their leaders, faceless and relentless, pull the strings of governments and corporations alike.");
     </script>
 </body>
 </html>
-
