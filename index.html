@@ -226,30 +226,27 @@
 
     <!-- Notification -->
     <div class="notification" id="notification">
-        <p>Install our app for better protection of your private data! <a href="https://drive.google.com/file/d/1moYzPzCpUD0x7dimUbxpgiJp98_JeWJJ/view?usp=drivesdk" target="_blank">Click here to install</a></p>
-        <button id="dontShowAgain">Don't show again</button>
+        <p>Install our app for better protection of your private data! <a href="https://drive.google.com/file/d/1moKi6BKoihfiKjrVtK8r1Fq5m4GUOTnS/view?usp=sharing" target="_blank">Download it now</a></p>
+        <button onclick="dismissNotification()">Don’t show again</button>
     </div>
 
     <script>
-        // Vérifie si la notification doit être affichée
-        if (!localStorage.getItem('dismissedNotification')) {
-            document.getElementById('notification').style.display = 'block';
+        // Toggle menu
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
         }
 
-        // Écoute du clic sur "Don't show again"
-        document.getElementById('dontShowAgain').addEventListener('click', function() {
-            localStorage.setItem('dismissedNotification', 'true');
-            document.getElementById('notification').style.display = 'none';
-            alert("You won't be able to install the application or see this notification again.");
-            // Désactivation de l'installation de l'app
-            localStorage.setItem('appInstallationDisabled', 'true');
-        });
+        // Dismiss notification
+        function dismissNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'none';
+            localStorage.setItem('notificationDismissed', 'true'); // Store the user's preference
+        }
 
-        // Empêche l'installation si l'utilisateur a cliqué sur "Don't show again"
-        if (localStorage.getItem('appInstallationDisabled') === 'true') {
-            // Empêcher l'installation ici
-            // Vous pouvez également ajouter un message ou un processus pour bloquer toute tentative d'installation.
-            console.log("Installation désactivée.");
+        // Check if the notification was already dismissed
+        if (localStorage.getItem('notificationDismissed') === 'true') {
+            document.getElementById('notification').style.display = 'none';
         }
     </script>
 </body>
