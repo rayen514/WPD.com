@@ -151,6 +151,31 @@
             box-shadow: 0px 0px 20px #ff3333;
         }
 
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff3333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            box-shadow: 0px 0px 10px #ff0000;
+            z-index: 3;
+        }
+
+        .notification button {
+            margin-top: 10px;
+            background-color: #660000;
+            border: none;
+            color: #ff1a1a;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
         /* Animations */
         @keyframes flicker {
             0%, 100% { opacity: 1; }
@@ -169,17 +194,6 @@
             80% { transform: translate(-1px, -1px) rotate(1deg); }
             90% { transform: translate(1px, 2px) rotate(0deg); }
             100% { transform: translate(1px, -2px) rotate(-1deg); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes flickerText {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
         }
 
         @keyframes slideIn {
@@ -209,12 +223,33 @@
         <button>l'orrore della mafia e la sua bellezza 💀</button>
     </main>
 
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p>Install our app for better protection of your private data! <a href="https://drive.google.com/file/d/1moYzPzCpUD0x7dimUbxpgiJp98_JeWJJ/view?usp=drivesdk" target="_blank">Click here to install</a></p>
+        <button id="dontShowAgain">Don't show again</button>
+    </div>
+
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("open");
+        // Vérifie si la notification doit être affichée
+        if (!localStorage.getItem('dismissedNotification')) {
+            document.getElementById('notification').style.display = 'block';
+        }
+
+        // Écoute du clic sur "Don't show again"
+        document.getElementById('dontShowAgain').addEventListener('click', function() {
+            localStorage.setItem('dismissedNotification', 'true');
+            document.getElementById('notification').style.display = 'none';
+            alert("You won't be able to install the application or see this notification again.");
+            // Désactivation de l'installation de l'app
+            localStorage.setItem('appInstallationDisabled', 'true');
+        });
+
+        // Empêche l'installation si l'utilisateur a cliqué sur "Don't show again"
+        if (localStorage.getItem('appInstallationDisabled') === 'true') {
+            // Empêcher l'installation ici
+            // Vous pouvez également ajouter un message ou un processus pour bloquer toute tentative d'installation.
+            console.log("Installation désactivée.");
         }
     </script>
-
 </body>
 </html>
