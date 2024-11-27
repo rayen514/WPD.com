@@ -8,25 +8,54 @@
         /* Général */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
+            font-family: 'Courier New', monospace;
+            background: radial-gradient(circle, #000000, #1a1a1a, #000000);
+            color: #ff4444;
             padding: 20px;
+            overflow: hidden;
+            animation: flicker 1.5s infinite;
+        }
+
+        /* Animation globale de "flicker" pour l'horreur */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                background-color: #000000;
+                color: #ff4444;
+            }
+            20%, 24%, 55% {
+                background-color: #1a1a1a;
+                color: #ff0000;
+            }
         }
 
         /* En-tête */
         header {
-            background-color: #333;
+            background-color: #111;
             padding: 20px;
             text-align: center;
+            border: 5px solid #660000;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 0px 30px #660000 inset;
         }
 
         header h1 {
-            font-size: 2.5em;
-            color: #f1c40f;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            font-size: 3em;
+            color: #ff4444;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #660000, 0 0 30px #ff0000;
+            animation: textFlicker 3s infinite;
+        }
+
+        /* Effet glitch pour le texte */
+        @keyframes textFlicker {
+            0% {
+                text-shadow: 0 0 5px #ff0000, 0 0 15px #660000;
+            }
+            50% {
+                text-shadow: 0 0 15px #ff4444, 0 0 30px #ff0000;
+            }
+            100% {
+                text-shadow: 0 0 5px #660000, 0 0 10px #330000;
+            }
         }
 
         /* Contenu principal */
@@ -36,64 +65,70 @@
         }
 
         .content {
-            background-color: #333;
+            background-color: #0f0f0f;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff0000;
+            box-shadow: 0px 0px 20px #330000 inset, 0px 0px 40px #ff0000;
         }
 
         .content h2 {
-            font-size: 2em;
-            color: #e74c3c;
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #990000;
+            text-shadow: 2px 2px 8px #ff0000, -2px -2px 8px #330000;
+            animation: glowRed 2s infinite alternate;
+        }
+
+        /* Animation pour le titre */
+        @keyframes glowRed {
+            0% {
+                color: #ff4444;
+                text-shadow: 0 0 10px #ff0000;
+            }
+            100% {
+                color: #990000;
+                text-shadow: 0 0 20px #660000;
+            }
         }
 
         .content p {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #bdc3c7;
+            color: #cccccc;
+            text-shadow: 1px 1px 5px #330000;
         }
 
         .cta-link {
             display: inline-block;
             margin-top: 20px;
             padding: 15px 30px;
-            font-size: 1.1em;
-            color: #fff;
-            background-color: #16a085;
-            border: none;
-            border-radius: 5px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background: linear-gradient(90deg, #330000, #660000, #330000);
+            border: 3px solid #660000;
+            border-radius: 10px;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 0px 10px #ff0000 inset, 0px 0px 20px #330000;
         }
 
         .cta-link:hover {
-            background-color: #1abc9c;
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0px 0px 30px #ff0000, 0px 0px 50px #660000;
         }
 
         .footer {
             margin-top: 40px;
             text-align: center;
             font-size: 1.1em;
-            color: #95a5a6;
+            color: #660000;
+            text-shadow: 0 0 5px #ff0000;
         }
 
         .footer a {
-            color: #e74c3c;
-            text-decoration: none;
+            color: #ff0000;
+            text-decoration: underline;
             font-weight: bold;
-        }
-
-        /* Animation de texte */
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #e74c3c, 0 0 10px #e74c3c, 0 0 15px #e74c3c; }
-            50% { text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c, 0 0 40px #e74c3c; }
-            100% { text-shadow: 0 0 5px #e74c3c, 0 0 10px #e74c3c, 0 0 15px #e74c3c; }
-        }
-
-        .title-glow {
-            animation: glow 1.5s infinite alternate;
         }
     </style>
 </head>
@@ -101,7 +136,7 @@
 
     <!-- En-tête -->
     <header>
-        <h1 class="title-glow">Welcome to Admin's Updates</h1>
+        <h1>Welcome to Admin's Updates</h1>
     </header>
 
     <!-- Contenu principal -->
@@ -112,7 +147,7 @@
 
             <p>Click the link below to explore the latest posts and updates by our Admin, Fehrer:</p>
 
-            <a href="https://mastodon.social/start?fbclid=IwY2xjawGwfXdleHRuA2FlbQIxMAABHRBQtaiD-qFcySRC4TWm7RzGeYodzAL1GJenL6jfBMMnQ_sI6o-HtdMS-A_aem_y1gvuVXqJrroFcGohaT8fA">Visit Admin's Posts and Updates</a>
+            <a class="cta-link" href="https://mastodon.social/start?fbclid=IwY2xjawGwfXdleHRuA2FlbQIxMAABHRBQtaiD-qFcySRC4TWm7RzGeYodzAL1GJenL6jfBMMnQ_sI6o-HtdMS-A_aem_y1gvuVXqJrroFcGohaT8fA">Visit Admin's Posts and Updates</a>
         </div>
     </main>
 
