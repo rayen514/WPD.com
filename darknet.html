@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Interface - Black Market</title>
+    <style>
+        /* Global styling */
+        body {
+            background-color: #010101;
+            color: #0f0; /* Neon green text for hacker look */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            text-shadow: 0px 0px 5px #ff0000, 0px 0px 10px #ff0000, 0px 0px 15px #ff0000;
+        }
+
+        /* Sliding animation for page */
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Apply sliding effect to the main content */
+        .main-content {
+            animation: slideIn 1s ease-out forwards;
+            margin: 0;
+            padding: 20px;
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Allow scrolling */
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff3333;
+            text-transform: uppercase;
+            font-size: 36px;
+            margin: 40px 0;
+            text-shadow: 2px 2px 5px #ff0000;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px #ff0000;
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        .item {
+            padding: 15px;
+            background: #222;
+            margin: 10px 0;
+            border: 1px dashed #ff3333;
+            box-shadow: 0 0 10px #ff3333;
+        }
+
+        .item h2 {
+            color: #ff6666;
+            font-size: 22px;
+        }
+
+        .item p {
+            color: #ff9999;
+        }
+
+        a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #ff0000;
+            font-size: 14px;
+            animation: slideIn 3s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Welcome to the Dark Web</h1>
+
+        <div class="container">
+            <div class="item">
+                <h2>Item 1: Stolen Data</h2>
+                <p>Description: Personal data of 10,000 users.</p>
+                <p>Price: $500</p>
+                <a href="#">Buy Now</a>
+            </div>
+            <div class="item">
+                <h2>Item 2: Fake IDs</h2>
+                <p>Description: High-quality fake identification cards.</p>
+                <p>Price: $300 each</p>
+                <a href="#">Buy Now</a>
+            </div>
+            <div class="item">
+                <h2>Item 3: Hacking Tools</h2>
+                <p>Description: Advanced software for penetration testing.</p>
+                <p>Price: $1,000</p>
+                <a href="#">Buy Now</a>
+            </div>
+            <!-- Add more items if needed -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Dark Web Market. All rights reserved.</p>
+    </div>
+</body>
+</html>
