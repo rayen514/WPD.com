@@ -217,6 +217,7 @@
         <a href="horreur3.html">Stories ☠️</a>
         <a href="forum.html">Forum ☠️</a> 
         <a href="darknet.html">darknet ☠️</a> 
+        <a href="video.html">watch scumbags die</a>
     </nav>
 
     <main>
@@ -242,13 +243,15 @@
         function dismissNotification() {
             const notification = document.getElementById('notification');
             notification.style.display = 'none';
-            localStorage.setItem('notificationDismissed', 'true'); // Store the user's preference
         }
 
-        // Check if the notification was already dismissed
-        if (localStorage.getItem('notificationDismissed') === 'true') {
-            document.getElementById('notification').style.display = 'none';
-        }
+        // Ensure the notification disappears after being clicked
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('notification').style.display = 'block';
+            }, 1000);
+        };
     </script>
 </body>
 </html>
+
