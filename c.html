@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mafia Marketplace (Links Locked)</title>
+  <style>
+    body {
+      background-color: #000000; /* Fond très sombre */
+      color: #ff0000; /* Rouge vif */
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 3em;
+      color: #ff0000;
+      text-shadow: 2px 2px 8px #900000;
+      margin-top: 20px;
+    }
+
+    .container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      border: 2px dashed #ff0000;
+      padding: 20px;
+      background-color: #111; /* Fond gris très sombre */
+      box-shadow: 0 0 10px #900;
+    }
+
+    .link-box {
+      margin: 20px 0;
+      background-color: #1a1a1a;
+      padding: 10px;
+      border: 1px solid #900;
+      text-align: center;
+      box-shadow: 0 0 10px #ff0000;
+    }
+
+    .encrypted {
+      color: #00ff00; /* Vert vif pour le texte chiffré */
+      font-size: 1.2em;
+      word-break: break-word;
+      text-transform: uppercase;
+    }
+
+    .warning {
+      margin-top: 30px;
+      color: #ff6600;
+      text-align: center;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mafia Marketplace</h1>
+  <div class="container">
+    <!-- Lien pour la red room -->
+    <div class="link-box">
+      <span class="encrypted" id="link1"></span>
+      <div>Price: $200</div>
+    </div>
+
+    <!-- Lien pour le marché noir -->
+    <div class="link-box">
+      <span class="encrypted" id="link2"></span>
+      <div>Price: $200</div>
+    </div>
+  </div>
+
+  <div class="warning">
+    Warning: These links are encrypted and cannot be accessed.
+  </div>
+
+  <script>
+    // Les liens originaux
+    const originalLinks = {
+      link1: "https://rayen514.github.io/red.com/",
+      link2: "https://rayen514.github.io/WPD.com/darknet.html#"
+    };
+
+    // Fonction pour chiffrer les liens en base64
+    function encryptLinks(links) {
+      for (const key in links) {
+        const encrypted = btoa(links[key]); // Chiffrement en base64
+        document.getElementById(key).textContent = encrypted; // Affichage du lien chiffré
+      }
+    }
+
+    // Appel de la fonction pour chiffrer et afficher
+    encryptLinks(originalLinks);
+
+    // Empêche tout accès même par clic
+    document.querySelectorAll(".encrypted").forEach((element) => {
+      element.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Access to this link is denied.");
+      });
+    });
+  </script>
+</body>
+</html>
