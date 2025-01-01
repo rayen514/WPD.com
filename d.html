@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Trees Simulator</title>
+  <style>
+    /* Horrible dark trees style */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #0a0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #terminal {
+      width: 95%;
+      max-width: 900px;
+      padding: 20px;
+      background: radial-gradient(circle at center, #001100, #000000 90%);
+      border: 2px solid #0a0;
+      box-shadow: 0 0 10px #0f0, inset 0 0 5px #005500;
+      height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Tree-like branches */
+    #terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Simple_binary_tree_with_root.svg');
+      background-size: cover;
+      background-blend-mode: multiply;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    /* Flickering text effect */
+    .flicker {
+      animation: flickerText 1.5s infinite alternate;
+    }
+
+    @keyframes flickerText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Error text */
+    .error {
+      color: #f00;
+      font-weight: bold;
+      text-shadow: 0 0 10px #f00, 0 0 20px #a00;
+    }
+
+    .input-line {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Horrible tree colors for the links */
+    .link {
+      color: #00aa00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link:hover {
+      color: #005500;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <div id="output"></div>
+    <div class="input-line">
+      <span>&gt;</span>
+      <input type="text" id="input" autocomplete="off" autofocus style="background: none; border: none; color: #0a0; outline: none; width: 90%; font-weight: bold;">
+    </div>
+  </div>
+  <script>
+    const output = document.getElementById("output");
+    const input = document.getElementById("input");
+    const zowatchCode = "zowatchdiediacpeopl";
+    const installAppCode = "installapp//wpd";
+    const casinoCode = "httpscasino.wpd";
+    const crypterwpdCode = "crypterwpd123$$";
+    const videokillCode = "videokill789^^//";
+    const profilewpdCode = "profilewpd//";
+    const installwpdCode = "installwpd//";
+    const journalwpdCode = "journal//wpd";
+    const matholympiadCode = "matholympiad//wpd";  // New command for Math Olympiad link
+    const wpdRedCode = "wpdred123789456$$//***123ranlercoin";  // Nouveau code
+    const zowatchLink = "https://rayen514.github.io/WPD.com/";
+    const installAppLink = "https://l.facebook.com/l.php?u=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1moYzPzCpUD0x7dimUbxpgiJp98_JeWJJ%2Fview%3Fusp%3Ddrivesdk%26fbclid%3DIwZXh0bgNhZW0CMTAAAR26IaHPai0wTUqjKVjwa1z-BofO-eHAypeF0vhWaKZ74ZIXmymIlvKCzKU_aem_AQepf1maLxcf-j-xF9H9yw&h=AT1gzu3w8I53oJgZUbTtSpiNeo2ZsDhNLI-ZxT2u7KF6T-0un0k7rsURAK1wghhTjanBAplR5cWVNyOmHeSnc5NLYYyVmTVV1oHVzxk4--kWbp19pTbezEM0z7dzi7tWKcfHzA";
+    const casinoLink = "https://rayen514.github.io/casino.com/";
+    const crypterwpdLink = "https://rayen514.github.io/crypte.com/";
+    const videoLink = "https://rayen514.github.io/WPD.com/video.html";
+    const profilewpdLink = "https://rayen514.github.io/news.com/";
+    const installwpdLink = "https://rayen514.github.io/hack.com/";
+    const journalwpdLink = "https://rayen514.github.io/journal.com/";
+    const matholympiadLink = "https://l.facebook.com/l.php?u=https%3A%2F%2Frebrand.ly%2Ff...";  // Your Math Olympiad link
+    const wpdRedLink = "https://rayen514.github.io/red.com/";  // Lien à afficher pour ce code
+
+    async function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function generateCrypticSymbols(text) {
+      const symbols = [
+        'Σ', '∇', '∑', '≡', '≈', 'α', 'β', 'γ', 'λ', 'δ', 'φ', 'θ', 'Ω', 'ξ', 'ψ', 'ϕ', 'η', 'π', 'ρ', 'σ',
+        '⇔', '⊗', '⊕', '≠', '√', '∫', '∞', '∃', '∀', '⊥', '⌀', '≪', '∝', '⇒', '⊆', '⊇', '⊂', '⊃', '⧫', '≔', '☢',
+        '↔', 'Δ', 'Θ', '©', '⊗', '₣', 'Ж', 'β', '✘', '∅', 'Ϟ', '≡', '⊕', '⋏', '⇕', 'ζ', 'ღ', 'ℑ', '¿', '₪', '♠', '⚡'
+      ];
+      return text.split('').map(char => {
+        if (Math.random() < 0.4) {
+          return symbols[Math.floor(Math.random() * symbols.length)];
+        }
+        return char;
+      }).join('');
+    }
+
+    async function displayMessage(message, type = "normal") {
+      let p = document.createElement("p");
+      if (type === "error") {
+        p.classList.add("error");
+      } else if (type === "flicker") {
+        p.classList.add("flicker");
+      }
+      p.textContent = generateCrypticSymbols(message);
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+      await delay(1000);
+    }
+
+    async function displayMathOlympiadLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${matholympiadLink}" class="link" target="_blank">${generateCrypticSymbols(matholympiadLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayZowatchLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${zowatchLink}" class="link" target="_blank">${generateCrypticSymbols(zowatchLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayInstallAppLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${installAppLink}" class="link" target="_blank">${generateCrypticSymbols(installAppLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayCasinoLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${casinoLink}" class="link" target="_blank">${generateCrypticSymbols(casinoLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayCrypterwpdLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${crypterwpdLink}" class="link" target="_blank">${generateCrypticSymbols(crypterwpdLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayVideoLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${videoLink}" class="link" target="_blank">${generateCrypticSymbols(videoLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayProfilewpdLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${profilewpdLink}" class="link" target="_blank">${generateCrypticSymbols(profilewpdLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayInstallwpdLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${installwpdLink}" class="link" target="_blank">${generateCrypticSymbols(installwpdLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayJournalwpdLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${journalwpdLink}" class="link" target="_blank">${generateCrypticSymbols(journalwpdLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    async function displayRedLink() {
+      const p = document.createElement("p");
+      p.innerHTML = `<a href="${wpdRedLink}" class="link" target="_blank">${generateCrypticSymbols(wpdRedLink)}</a>`;
+      output.appendChild(p);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    input.addEventListener("keypress", async (event) => {
+      if (event.key === "Enter") {
+        const enteredCode = input.value.trim();
+        input.value = ""; // Clear the input field
+
+        const command = document.createElement("p");
+        command.textContent = `> ${generateCrypticSymbols(enteredCode)}`;
+        output.appendChild(command);
+
+        if (enteredCode === zowatchCode) {
+          await displayMessage("ACCESS GRANTED: ZOWATCH SYSTEM", "flicker");
+          await displayZowatchLink();
+        } else if (enteredCode === installAppCode) {
+          await displayMessage("ACCESS GRANTED: INSTALL APP SYSTEM", "flicker");
+          await displayInstallAppLink();
+        } else if (enteredCode === casinoCode) {
+          await displayMessage("ACCESS GRANTED: CASINO SYSTEM", "flicker");
+          await displayCasinoLink();
+        } else if (enteredCode === crypterwpdCode) {
+          await displayMessage("ACCESS GRANTED: CRYPTERWPD SYSTEM", "flicker");
+          await displayCrypterwpdLink();
+        } else if (enteredCode === videokillCode) {
+          await displayMessage("ACCESS GRANTED: VIDEO KILL SYSTEM", "flicker");
+          await displayVideoLink();
+        } else if (enteredCode === profilewpdCode) {
+          await displayMessage("ACCESS GRANTED: PROFILE WPD SYSTEM", "flicker");
+          await displayProfilewpdLink();
+        } else if (enteredCode === installwpdCode) {
+          await displayMessage("ACCESS GRANTED: INSTALL WPD SYSTEM", "flicker");
+          await displayInstallwpdLink();
+        } else if (enteredCode === journalwpdCode) {
+          await displayMessage("ACCESS GRANTED: JOURNAL WPD SYSTEM", "flicker");
+          await displayJournalwpdLink();
+        } else if (enteredCode === matholympiadCode) {  // Check for the Math Olympiad command
+          await displayMessage("ACCESS GRANTED: MATH OLYMPIAD SYSTEM", "flicker");
+          await displayMathOlympiadLink();
+        } else if (enteredCode === wpdRedCode) {  // Vérifier si le code correspond à celui de Red
+          await displayMessage("ACCESS GRANTED: RED SYSTEM", "flicker");
+          await displayRedLink();
+        } else {
+          await displayMessage("ERROR: INVALID COMMAND", "error");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
