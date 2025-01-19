@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horrible Video Room</title>
+    <style>
+        body {
+            background-color: #0a0000;
+            color: #ff0000;
+            font-family: "Courier New", monospace;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            color: #8b0000;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #550000;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            border: 5px solid #8b0000;
+            background: repeating-linear-gradient(45deg, #0f0f0f, #2b0000 20px, #000000 40px);
+        }
+        .video-wrapper {
+            border: 10px double #550000;
+            padding: 10px;
+            background-color: #150000;
+            box-shadow: 0 0 15px #ff0000, 0 0 30px #8b0000;
+        }
+        .video-wrapper iframe {
+            width: 800px;
+            height: 450px;
+            border: none;
+        }
+        .text {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 24px;
+            color: #aa0000;
+            text-shadow: 1px 1px 3px #000000;
+        }
+        .text p {
+            animation: glitch 3s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 2px 2px #ff0000, -2px -2px #000000;
+            }
+            50% {
+                text-shadow: -3px -3px #8b0000, 3px 3px #550000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>☠ Horrible Video Room ☠</h1>
+    <div class="container">
+        <div class="video-wrapper">
+            <iframe src="https://app.videas.fr/63af58ab-b9df-439e-8aea-831273ac395a/" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="text">
+        <p>¿¿Noxious Text Appears Here??</p>
+        <p>#$@% Horrible $$$ Text $$@&%</p>
+        <p>Unsettlingly Random &&#%;# Words...</p>
+    </div>
+</body>
+</html>
