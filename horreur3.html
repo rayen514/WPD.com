@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histoires Horribles</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
         body {
             background-color: black;
             color: #e60000;
@@ -20,6 +22,7 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
             font-size: 3rem;
             margin-top: 20px;
+            animation: flicker 3s infinite alternate;
         }
 
         p {
@@ -61,19 +64,13 @@
             animation: flicker 3s infinite alternate;
         }
 
-        @keyframes flicker {
-            0% {
-                opacity: 1;
-                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
-            }
-            50% {
-                opacity: 0.5;
-                text-shadow: none;
-            }
-            100% {
-                opacity: 1;
-                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
-            }
+        .horror-story img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            border: 5px solid #ff0000;
+            box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
         }
 
         .warning {
@@ -86,6 +83,12 @@
             border-radius: 5px;
             box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
             animation: warning-blink 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
+            50% { opacity: 0.5; text-shadow: none; }
+            100% { opacity: 1; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
         }
 
         @keyframes warning-blink {
@@ -107,9 +110,9 @@
     </div>
 
     <div class="horror-story">
-        <h2>Good night :)</h2>
+        <h2>The Faceless Hunters</h2>
+        <img src="https://i.imgur.com/3QZQZQZ.jpg" alt="Faceless Figure">
         <p>
-            Night of the Faceless Hunters
             Midnight had long passed. Alone on a twisted, abandoned road that snaked through a forest, Alex gripped the steering wheel, his heart pounding. The darkness swallowed everything, pressing in on him with a cold and unforgiving presence. The trees leaned over like twisted, angry beasts with clawed branches, as if the forest itself were hunting him, watching his every move with vengeful eyes hidden deep within the shadows.
             
             Suddenly, his headlights swept over a figure standing dead center in the middle of the road—a person, or something that once looked like one, with a hood pulled low over its face. Alex hit the brakes, nearly skidding off the road as he fought to avoid the figure. But when he looked again, the thing was gone.
@@ -134,9 +137,32 @@
 
     <div class="separator"></div>
 
-    <h2>Next story</h2>
-    <div class="start-story" id="startStoryBtn2" onclick="startNewStory()">
-        Click here for a new story
+    <h2>The Whispering Walls</h2>
+    <div class="horror-story">
+        <img src="https://i.imgur.com/4QZQZQZ.jpg" alt="Haunted House">
+        <p>
+            In a small, forgotten town, there stood an old house. Its windows were shattered, its walls cracked, and its doors hung loosely on rusted hinges. The locals called it "The Whispering House," for it was said that the walls spoke to those who dared enter.
+            
+            One night, a group of friends decided to explore the house. They laughed as they entered, mocking the legends. But as they ventured deeper, the air grew colder, and the laughter died in their throats. The walls began to whisper, faint at first, then louder and louder. The voices were incoherent, a cacophony of despair and rage.
+            
+            One by one, the friends disappeared. Their screams echoed through the house, but no one came to their aid. The walls had claimed them, their souls trapped forever in the endless whispers.
+            
+            If you ever hear the walls whisper, run. Run and never look back.
+        </p>
+    </div>
+
+    <div class="separator"></div>
+
+    <h2>The Shadow in the Mirror</h2>
+    <div class="horror-story">
+        <img src="https://i.imgur.com/5QZQZQZ.jpg" alt="Creepy Mirror">
+        <p>
+            Emily had always loved her antique mirror. It was old, with a beautifully carved frame, and it had been in her family for generations. But lately, something felt off. Whenever she looked into the mirror, she saw a shadowy figure standing behind her. At first, she thought it was her imagination, but the figure grew clearer each day.
+            
+            One night, she woke up to the sound of footsteps. She turned on the light and saw the shadowy figure standing in the corner of her room. It stepped closer, its form shifting and twisting unnaturally. Emily tried to scream, but no sound came out. The figure reached out, its cold fingers wrapping around her throat.
+            
+            The next morning, the mirror was gone. But if you look closely into any mirror, you might see Emily’s face, her eyes wide with terror, as the shadowy figure looms behind her.
+        </p>
     </div>
 
     <script>
