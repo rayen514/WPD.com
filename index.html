@@ -151,31 +151,6 @@
             box-shadow: 0px 0px 20px #ff3333;
         }
 
-        /* Notification */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ff3333;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            box-shadow: 0px 0px 10px #ff0000;
-            z-index: 3;
-        }
-
-        .notification button {
-            margin-top: 10px;
-            background-color: #660000;
-            border: none;
-            color: #ff1a1a;
-            padding: 8px 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
         /* Animations */
         @keyframes flicker {
             0%, 100% { opacity: 1; }
@@ -215,23 +190,17 @@
         <a href="set.html">Fehrer’s Dark Mafia Secrets - Posts and Updates You Shouldn’t See 🕸️</a>
         <a href="horreur3.html">Stories ☠️</a>
         <a href="forum.html">Forum ☠️</a> 
-        <a href="darknet.html">darknet ☠️</a> 
-        <a href="reel.html">ٌreels(The word of horror)🕸️</a>
-        <a href="d.html">paid links 👻</a>
+        <a href="darknet.html">Darknet ☠️</a> 
+        <a href="reel.html">Reels (The Word of Horror) 🕸️</a>
+        <a href="d.html">Paid Links 👻</a>
         <a href="G.html">Doomed Halls 🕸️</a>
     </nav>
 
     <main>
-        <h1>Welcome to the world of horror 👀</h1>
+        <h1>Welcome to the World of Horror 👀</h1>
         <p>Did you dare to enter this page? Prepare yourself for a terrifying and unforgettable experience... 🕯️💀</p>
-        <button>l'orrore della mafia e la sua bellezza 💀</button>
+        <button>L'orrore della mafia e la sua bellezza 💀</button>
     </main>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <p>Install our app for better protection of your private data! <a href="https://drive.google.com/file/d/1moKi6BKoihfiKjrVtK8r1Fq5m4GUOTnS/view?usp=sharing" target="_blank">Download it now</a></p>
-        <button onclick="dismissNotification()">Don’t show again</button>
-    </div>
 
     <script>
         // Toggle menu
@@ -239,20 +208,6 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('open');
         }
-
-        // Dismiss notification
-        function dismissNotification() {
-            const notification = document.getElementById('notification');
-            notification.style.display = 'none';
-        }
-
-        // Ensure the notification disappears after being clicked
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('notification').style.display = 'block';
-            }, 1000);
-        };
     </script>
 </body>
 </html>
-
