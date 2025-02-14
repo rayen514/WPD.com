@@ -3,213 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Posts and Updates</title>
+    <title>WAVEGRAM - Phantom Network</title>
     <style>
-        /* Général */
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+        
+        /* Couleurs principales */
+        :root {
+            --blood-red: #2a0000;
+            --dark-bg: #0a0000;
+            --border-color: #1a0000;
+        }
+
         body {
-            margin: 0;
-            font-family: 'Courier New', monospace;
-            background: radial-gradient(circle, #000000, #1a1a1a, #000000);
-            color: #ff4444;
-            padding: 20px;
-            overflow: hidden;
-            animation: flicker 1.5s infinite;
-        }
-
-        /* Animation globale de "flicker" pour l'horreur */
-        @keyframes flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                background-color: #000000;
-                color: #ff4444;
-            }
-            20%, 24%, 55% {
-                background-color: #1a1a1a;
-                color: #ff0000;
-            }
-        }
-
-        /* En-tête */
-        header {
-            background-color: #111;
-            padding: 20px;
+            background: var(--dark-bg) url('https://i.ibb.co/JXxRYLY/images-3.jpg');
+            color: #c0392b;
+            font-family: 'Creepster', cursive;
             text-align: center;
-            border: 5px solid #660000;
-            border-radius: 10px;
-            box-shadow: 0px 0px 30px #660000 inset;
-        }
-
-        header h1 {
-            font-size: 3em;
-            color: #ff4444;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #660000, 0 0 30px #ff0000;
-            animation: textFlicker 3s infinite;
-        }
-
-        /* Effet glitch pour le texte */
-        @keyframes textFlicker {
-            0% {
-                text-shadow: 0 0 5px #ff0000, 0 0 15px #660000;
-            }
-            50% {
-                text-shadow: 0 0 15px #ff4444, 0 0 30px #ff0000;
-            }
-            100% {
-                text-shadow: 0 0 5px #660000, 0 0 10px #330000;
-            }
-        }
-
-        /* Contenu principal */
-        main {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .content {
-            background-color: #0f0f0f;
-            padding: 30px;
-            border-radius: 10px;
-            border: 3px solid #ff0000;
-            box-shadow: 0px 0px 20px #330000 inset, 0px 0px 40px #ff0000;
-        }
-
-        .content h2 {
-            font-size: 2.5em;
-            color: #990000;
-            text-shadow: 2px 2px 8px #ff0000, -2px -2px 8px #330000;
-            animation: glowRed 2s infinite alternate;
-        }
-
-        /* Animation pour le titre */
-        @keyframes glowRed {
-            0% {
-                color: #ff4444;
-                text-shadow: 0 0 10px #ff0000;
-            }
-            100% {
-                color: #990000;
-                text-shadow: 0 0 20px #660000;
-            }
-        }
-
-        .content p {
-            font-size: 1.2em;
+            padding: 20px;
             line-height: 1.6;
-            color: #cccccc;
-            text-shadow: 1px 1px 5px #330000;
         }
 
-        .cta-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: #ffffff;
-            background: linear-gradient(90deg, #330000, #660000, #330000);
-            border: 3px solid #660000;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0px 0px 10px #ff0000 inset, 0px 0px 20px #330000;
+        h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 0 0 10px var(--blood-red);
+            letter-spacing: 2px;
         }
 
-        .cta-link:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0px 0px 30px #ff0000, 0px 0px 50px #660000;
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid var(--border-color);
+            box-shadow: 0 0 30px var(--blood-red);
+            position: relative;
         }
 
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 1.1em;
-            color: #660000;
-            text-shadow: 0 0 5px #ff0000;
+        .image-container {
+            margin: 2rem 0;
+            overflow: hidden;
         }
 
-        .footer a {
-            color: #ff0000;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        /* Modal Under Maintenance */
-        #maintenanceModal {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .image {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #ff4444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
+            border: 3px solid var(--border-color);
+            transition: transform 0.3s ease;
+            filter: grayscale(80%) contrast(120%);
+        }
+
+        .image:hover {
+            transform: scale(1.02);
+        }
+
+        .content-section {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(26, 0, 0, 0.3);
+        }
+
+        .warning {
+            color: #e74c3c;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border: 2px dashed var(--blood-red);
+            margin: 2rem 0;
+        }
+
+        .feature-list {
+            text-align: left;
+            font-size: 1.1rem;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-left: 3px solid var(--blood-red);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: linear-gradient(to right, #2a0000, #1a0000);
+            color: #ecf0f1 !important;
+            border: 2px solid var(--blood-red);
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin: 1.5rem 0;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(to right, #1a0000, #2a0000);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--blood-red);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .floating-text {
+            position: absolute;
+            font-size: 0.9rem;
+            opacity: 0.5;
             pointer-events: none;
-            transition: opacity 1s ease-in-out;
         }
-
-        #maintenanceModal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        #maintenanceModal .message {
-            background-color: #111;
-            padding: 30px;
-            text-align: center;
-            border-radius: 10px;
-            border: 3px solid #660000;
-            box-shadow: 0px 0px 20px #330000 inset, 0px 0px 40px #ff0000;
-            font-size: 2em;
-            color: #ff0000;
-            text-shadow: 0 0 15px #ff0000;
-            animation: flickerMessage 1.5s infinite;
-        }
-
-        @keyframes flickerMessage {
-            0%, 100% {
-                color: #ff0000;
-                text-shadow: 0 0 10px #ff0000, 0 0 20px #660000;
-            }
-            50% {
-                color: #660000;
-                text-shadow: 0 0 30px #ff4444, 0 0 40px #ff0000;
-            }
-        }
-
     </style>
 </head>
 <body>
-
-    <!-- En-tête -->
-    <header>
-        <h1>Welcome to Admin's Updates</h1>
-    </header>
-
-    <!-- Contenu principal -->
-    <main>
-        <div class="content">
-            <h2>Latest News and Updates</h2>
-            <p>Fehrer, the boss of the mafia, has a lot to say. This page is dedicated to sharing his latest posts and important updates regarding the mafia world. Stay tuned for more news directly from the leader's desk!</p>
-
-            <p>Click the link below to explore the latest posts and updates by our Admin, Fehrer:</p>
-
-            <a class="cta-link" href="https://mastodon.social/start?fbclid=IwY2xjawGwfXdleHRuA2FlbQIxMAABHRBQtaiD-qFcySRC4TWm7RzGeYodzAL1GJenL6jfBMMnQ_sI6o-HtdMS-A_aem_y1gvuVXqJrroFcGohaT8fA">Visit Admin's Posts and Updates</a>
+    <div class="container">
+        <h1>WAVEGRAM - Eternal Haunting</h1>
+        
+        <div class="warning" style="animation: pulse 3s infinite;">
+            YOUR SOUL WILL BECOME OUR PROPERTY
         </div>
-    </main>
 
-    <!-- Modal Under Maintenance -->
-    <div id="maintenanceModal">
-        <div class="message">Under Maintenance... Horrible Surprise Coming Soon!</div>
+        <div class="image-container">
+            <img src="https://i.ibb.co/39y4Fv5j/image.jpg" 
+                 class="image" 
+                 alt="Phantom Gateway">
+        </div>
+
+        <div class="content-section">
+            <ul class="feature-list">
+                <li>👻 Phantom Protocol: Bind souls to the void</li>
+                <li>🩸 Blood Encryption: Sacrificial message security</li>
+                <li>💀 Ghost Freedom™: Communication beyond death</li>
+                <li>🔥 Eternal Flame: Data burns in the abyss</li>
+                <li>🪦 Grave Sync: Messages on nearby tombstones</li>
+            </ul>
+
+            <a href="http://www.appsgeyser.com/18569639?" class="cta-button">Summon the Darkness</a>
+        </div>
+
+        <div class="floating-text" style="top: 10px; left: 10px;">They watch</div>
+        <div class="floating-text" style="bottom: 10px; right: 10px;">No escape</div>
     </div>
 
-    <script>
-        // Show the maintenance modal when the page loads
-        window.onload = function() {
-            document.getElementById('maintenanceModal').classList.add('active');
-        };
-    </script>
-
+    <div style="position: fixed; bottom: 10px; right: 10px; font-size: 0.8rem; opacity: 0.7;">
+        All activities monitored by the Shadow Collective
+    </div>
 </body>
 </html>
